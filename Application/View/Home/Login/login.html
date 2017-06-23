@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<head>
+	<style type="text/css">
+		#a{
+	margin-right: 20px;
+		}
+		#b{
+			margin-right: 40px;
+		}
+	</style>
+	<title>会员登录</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="./Public/Admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./Public/Admin/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="./Public/Admin/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+	<link href="./Public/Admin/css/templatemo_style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="templatemo-bg-image-2">
+	<div class="container">
+		<div class="col-md-12">			
+			<form class="form-horizontal templatemo-contact-form-1" role="form" action="index.php?p=Home&c=Login&a=check" method="post">
+				<div class="form-group">
+					<div class="col-md-12">
+						<h1 class="margin-bottom-15">欢迎您会员！</h1>
+						<p>Welcome...</p>
+					</div>
+				</div>				
+		        <div class="form-group">
+		          <div class="col-md-12">		          	
+		            <label for="name"  class="control-label">User name</label>
+		            <div class="templatemo-input-icon-container">
+		            	<i class="fa fa-user"></i>
+		            	<input name="username" type="text" class="form-control" id="name" placeholder="">
+		            </div>		            		            		            
+		          </div>              
+		        </div>
+		       
+		        <div class="form-group">
+		          <div class="col-md-12">
+		            <label for="website" class="control-label">Password</label>
+		            <div class="templatemo-input-icon-container">
+		            	<i class="fa fa-globe"></i>
+		            	<input name="password" type="password" class="form-control" id="website" placeholder="">
+		            </div>
+		          </div>
+		        </div>
+
+				<div class="form-group">
+					<div class="col-md-12">
+						<label for="website" class="control-label">captcha</label>
+						<div class="templatemo-input-icon-container">
+							<!--验证码-->
+							<input name="captcha" type="text" class="form-control" id="" placeholder="">
+						</div>
+					</div>
+				</div>
+				<img src="index.php?p=Home&c=Captcha&a=index" onclick="this.src='index.php?p=Admin&c=Captcha&a=index&'+ Math.random()" />
+		        <div class="form-group">
+		          <div class="col-md-12">
+		            <div class="checkbox">
+		                <label>
+		                  <input name="remember" type="checkbox"> Do you save the password.
+		                </label>
+		            </div>		            
+		          </div>
+		        </div>
+				<div class="form-group" >
+					<div class="col-md-12">
+						<p>
+							<!--登录-->
+						<input id="a" type="submit" value="sign in" class="btn btn-success pull-right">
+							<!--注册-->
+						<input id="b" onclick="window.location='index.php?p=Home&c=Signup&a=signup'" type="button" value="sign up" class="btn btn-success pull-right">
+					</p>
+					</div>
+				</div>
+		      </form>		      
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<head>
+	<title>会员注册</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		#a{
+			margin-right: 20px;
+		}
+		#b{
+			margin-right: 40px;
+		}
+		</style>
+	<link href="./Public/Admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./Public/Admin/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="./Public/Admin/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+	<link href="./Public/Admin/css/templatemo_style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="templatemo-bg-image-2">
+	<div class="container">
+		<div class="col-md-12">			
+			<form action="index.php?p=Home&c=Signup&a=signup"
+				  enctype="multipart/form-data"
+					class="form-horizontal templatemo-contact-form-1" role="form"  method="post">
+				<div class="form-group">
+					<div class="col-md-12">
+						<h1 class="margin-bottom-15">会员注册</h1>
+						<p></p>
+					</div>
+				</div>				
+		        <div class="form-group">
+		          <div class="col-md-12">		          	
+		            <label for="name" class="control-label">用户名</label>
+		            <div class="templatemo-input-icon-container">
+		            	<i class="fa fa-user"></i>
+
+						<!--用户名-->
+
+		            	<input name="username" type="text" class="form-control" id="name" placeholder="">
+		            </div>		            		            		            
+		          </div>              
+		        </div>
+
+				<div class="form-group">
+					<div class="col-md-12">
+						<label for="subject" class="control-label">密码</label>
+						<div class="templatemo-input-icon-container">
+							<i class="fa fa-info-circle"></i>
+
+							<!--密码-->
+
+							<input name="password" type="password" class="form-control"  placeholder="">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+						<label for="subject" class="control-label">确认密码</label>
+						<div class="templatemo-input-icon-container">
+							<i class="fa fa-info-circle"></i>
+
+							<!--确认密码-->
+
+							<input name="re_password" type="password" class="form-control" id="" placeholder="">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-12">
+						<label for="subject" class="control-label">姓名</label>
+						<div class="templatemo-input-icon-container">
+							<i class="fa fa-info-circle"></i>
+
+							<!--姓名-->
+
+							<input name="realname" type="text" class="form-control"  placeholder="">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-12">
+						<label for="subject" class="control-label">电话</label>
+						<div class="templatemo-input-icon-container">
+							<i class="fa fa-info-circle"></i>
+
+							<!--电话-->
+
+							<input name="telephone" type="text" class="form-control" id="subject" placeholder="">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-12">
+						<label for="subject" class="control-label">头像</label>
+						<div class="templatemo-input-icon-container">
+							<i class="fa fa-info-circle"></i>
+
+							<!--电话-->
+
+							<input name="photo" type="file" class="form-control" placeholder="">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-12">
+						<label for="subject" class="control-label">请选择性别</label>
+						<div class="templatemo-input-icon-container">
+
+							<!--性别-->
+
+							<input name="sex" type="radio" value="男"   placeholder="">男
+							<input name="sex" type="radio" value="女"  placeholder="">女
+						</div>
+					</div>
+				</div>
+
+		        <div class="form-group">
+		        </div>
+		        <div class="form-group">
+		          <div class="col-md-12">
+		            <div class="checkbox">
+		            </div>		            
+		          </div>
+		        </div>
+		        <div class="form-group">
+		          <div class="col-md-12">
+		            <input id="a" type="submit" value="提交" class="btn btn-success pull-right">
+					  <input id="b" onclick="window.location='index.php?p=Home&c=Login&a=login'" type="button" value="返回" class="btn btn-success pull-right">
+		          </div>
+		        </div>
+		      </form>		      
+		</div>
+	</div>
+</body>
+</html>
