@@ -61,6 +61,68 @@
     <link href="./public/Admin/css1/font-awesome.min.css" rel="stylesheet">
     <link href='./public/Admin/css1/685fd913f1e14aebad0cc9d3713ee469.css' rel='stylesheet' type='text/css'>
     <link href="./public/Admin/css1/pe-icon-7-stroke.css" rel="stylesheet" />
+    <style type="text/css">
+        p{margin:0}
+        #page{
+            height:40px;
+            padding:20px 0px;
+        }
+        #page a{
+            display:block;
+            float:left;
+            margin-right:10px;
+            padding:2px 12px;
+            height:24px;
+            border:1px #cccccc solid;
+            background:#fff;
+            text-decoration:none;
+            color:#808080;
+            font-size:12px;
+            line-height:24px;
+        }
+        #page a:hover{
+            color:#077ee3;
+            border:1px #077ee3 solid;
+        }
+        #page a.cur{
+            border:none;
+            background:#077ee3;
+            color:#fff;
+        }
+        #page p{
+            float:left;
+            padding:2px 12px;
+            font-size:12px;
+            height:24px;
+            line-height:24px;
+            color:#bbb;
+            border:1px #ccc solid;
+            background:#fcfcfc;
+            margin-right:8px;
+
+        }
+        #page p.pageRemark{
+            border-style:none;
+            background:none;
+            margin-right:0px;
+            padding:4px 0px;
+            color:#666;
+        }
+        #page p.pageRemark b{
+            color:red;
+        }
+        #page p.pageEllipsis{
+            border-style:none;
+            background:none;
+            padding:4px 0px;
+            color:#808080;
+        }
+        #admin{
+            width: 50px;
+        }
+        .dates li {font-size: 14px;margin:20px 0}
+        .dates li span{float:right}
+    </style>
 
 </head>
 <body>
@@ -109,7 +171,6 @@
 
 
 
-
                 <li>
                     <a data-toggle="collapse" href="#formsExamples">
                         <i class="pe-7s-note2"></i>
@@ -124,11 +185,6 @@
                         </ul>
                     </div>
                 </li>
-
-
-
-
-
 
 
 
@@ -204,57 +260,25 @@
         </nav>
 
         <div class="content">
-            <form action="index.php?p=Admin&c=Members&a=add" method="post" enctype="multipart/form-data">
-                <table>
-                    <tr>
-                        <td>用户名</td>
-                        <td><input name="username" type="text" placeholder="请输入用户名"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>密码</td>
-                        <td><input name="password" type="text" placeholder="请输入用户密码"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>姓名</td>
-                        <td><input name="realname" type="text" placeholder="请输入姓名"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>性别</td>
-                        <td>
-                            <input name="sex" type="radio" value="男">男
-                            <input name="sex" type="radio" value="女">女
-                        </td>
-                    <tr>
-                        <td>电话</td>
-                        <td><input name="telephone" type="text" placeholder="联系方式"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>所属于组</td>
-                        <td>
-                            <select name="group_id">
-                                <option value="0" >不分组</option>
-                                <?php foreach($groups as $group_s) { ?>
-                                <option value="<?php echo $group_s['group_id'];?>"><?php echo $group_s['name'];?></option>
-                                <?php } ?>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>头像上传</td>
-                        <td><input name="photo" type="file"></td>
-                    </tr>
-                    <tr>
-                        <td>确认为管理员</td>
-                        <td><input name="is_admin" value="1" type="checkbox"></td>
-                    </tr>
-                </table>
-                <input  type="submit" value="添加">
-            </form>
 
+            <a href="index.php?p=Admin&c=Plans&a=add">添加套餐</a>
+            <table  border="1" width="80%">
+                <tr><th>套餐id</th><th>套餐名称</th><th>套餐描述</th><th>套餐金额</th><th>是否上架</th><th>操作</th></tr>
 
+                <?php foreach($rows as $plan) { ?>
+                <tr>
+                    <td><?php echo $plan['plan_id'] ?></td>
+                    <td><?php echo $plan['name'] ?></td>
+                    <td><?php echo $plan['des'] ?></td>
+                    <td><?php echo $plan['money'] ?></td>
+                    <td><?php  if($plan['status']==1){echo "是";}else{echo "否";} ?></td>
+                    <td><a href="index.php?p=Admin&c=Plans&a=edit&id=<?php echo $plan['plan_id'] ?>">修改</a>
+                        <a href="index.php?p=Admin&c=Plans&a=delete&id=<?php echo $plan['plan_id'] ?>">删除</a></td>
+                </tr>
+                <?php } ?>
 
+            </table>
         </div>
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">

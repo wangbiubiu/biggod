@@ -204,11 +204,11 @@
         </nav>
 
         <div class="content">
-            <form action="index.php?p=Admin&c=Members&a=add" method="post" enctype="multipart/form-data">
+            <form action="index.php?p=Admin&c=User&a=add" method="post" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <td>用户名</td>
-                        <td><input name="username" type="text" placeholder="请输入用户名"/>*</td>
+                        <td><input name="username" type="text" placeholder="请输入用户名">*</td>
                     </tr>
                     <tr>
                         <td>密码</td>
@@ -228,25 +228,17 @@
                         <td>电话</td>
                         <td><input name="telephone" type="text" placeholder="联系方式"/>*</td>
                     </tr>
-                    <tr>
-                        <td>所属于组</td>
-                        <td>
-                            <select name="group_id">
-                                <option value="0" >不分组</option>
-                                <?php foreach($groups as $group_s) { ?>
-                                <option value="<?php echo $group_s['group_id'];?>"><?php echo $group_s['name'];?></option>
-                                <?php } ?>
-                            </select>
-                        </td>
-                    </tr>
+
                     <tr>
                         <td>头像上传</td>
                         <td><input name="photo" type="file"></td>
                     </tr>
+
                     <tr>
-                        <td>确认为管理员</td>
-                        <td><input name="is_admin" value="1" type="checkbox"></td>
+                        <td>备注</td>
+                        <td><textarea name="remark"></textarea></td>
                     </tr>
+
                 </table>
                 <input  type="submit" value="添加">
             </form>

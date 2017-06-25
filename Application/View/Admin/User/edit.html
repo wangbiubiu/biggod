@@ -204,11 +204,12 @@
         </nav>
 
         <div class="content">
-            <form action="index.php?p=Admin&c=Members&a=add" method="post" enctype="multipart/form-data">
+            <form action="index.php?p=Admin&c=User&a=edit" method="post" enctype="multipart/form-data">
+                <input name="id" type="hidden" value="<?php echo $user_id; ?>">
                 <table>
                     <tr>
                         <td>用户名</td>
-                        <td><input name="username" type="text" placeholder="请输入用户名"/>*</td>
+                        <td><input name="username" type="text" value="<?php echo $username; ?>">*</td>
                     </tr>
                     <tr>
                         <td>密码</td>
@@ -216,39 +217,34 @@
                     </tr>
                     <tr>
                         <td>姓名</td>
-                        <td><input name="realname" type="text" placeholder="请输入姓名"/>*</td>
+                        <td><input name="realname" type="text" value="<?php echo $realname; ?>" />*</td>
                     </tr>
                     <tr>
                         <td>性别</td>
                         <td>
-                            <input name="sex" type="radio" value="男">男
-                            <input name="sex" type="radio" value="女">女
+                            <input name="sex" type="radio" value="男" <?php if($sex=="男")echo "checked=''"; ?>>男
+                            <input name="sex" type="radio" value="女" <?php if($sex=="女")echo "checked=''"; ?>>女
                         </td>
                     <tr>
                         <td>电话</td>
-                        <td><input name="telephone" type="text" placeholder="联系方式"/>*</td>
+                        <td><input name="telephone" type="text" value="<?php echo $telephone; ?>"/>*</td>
                     </tr>
-                    <tr>
-                        <td>所属于组</td>
-                        <td>
-                            <select name="group_id">
-                                <option value="0" >不分组</option>
-                                <?php foreach($groups as $group_s) { ?>
-                                <option value="<?php echo $group_s['group_id'];?>"><?php echo $group_s['name'];?></option>
-                                <?php } ?>
-                            </select>
-                        </td>
-                    </tr>
+
                     <tr>
                         <td>头像上传</td>
-                        <td><input name="photo" type="file"></td>
+                        <td><input name="photo" type="file">
+                            <img width="30px" src="./Uploads/<?php echo $photo; ?>">
+                        </td>
+
                     </tr>
+
                     <tr>
-                        <td>确认为管理员</td>
-                        <td><input name="is_admin" value="1" type="checkbox"></td>
+                        <td>备注</td>
+                        <td><textarea name="remark"><?php echo $remark; ?></textarea></td>
                     </tr>
+
                 </table>
-                <input  type="submit" value="添加">
+                <input  type="submit" value="修改">
             </form>
 
 

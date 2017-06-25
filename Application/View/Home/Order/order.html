@@ -82,7 +82,7 @@
                 <div class="photo">
 
 
-                    <img height="80px" src="./Uploads/<?php echo $_SESSION['user_info']['photo'];  ?>" />
+                    <img height="80px" src="./Uploads/<?php echo $_SESSION['user_info1']['photo'];  ?>" />
 
                 </div>
                 <div class="info">
@@ -90,7 +90,7 @@
 
 
                         <!--<?php var_dump ($_SESSION)  ?>-->
-                        <?php echo $_SESSION['user_info']['realname'];  ?>
+                        <?php echo $_SESSION['user_info1']['realname'];?>
 
 
 
@@ -119,8 +119,7 @@
                     </a>
                     <div class="collapse" id="formsExamples">
                         <ul class="nav">
-                            <li><a href="index.php?p=Admin&c=Index&a=index">返回主页</a></li>
-
+                            <li><a href="index.php?p=Home&c=Index&a=index">返回主页</a></li>
                         </ul>
                     </div>
                 </li>
@@ -204,57 +203,14 @@
         </nav>
 
         <div class="content">
-            <form action="index.php?p=Admin&c=Members&a=add" method="post" enctype="multipart/form-data">
-                <table>
-                    <tr>
-                        <td>用户名</td>
-                        <td><input name="username" type="text" placeholder="请输入用户名"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>密码</td>
-                        <td><input name="password" type="text" placeholder="请输入用户密码"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>姓名</td>
-                        <td><input name="realname" type="text" placeholder="请输入姓名"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>性别</td>
-                        <td>
-                            <input name="sex" type="radio" value="男">男
-                            <input name="sex" type="radio" value="女">女
-                        </td>
-                    <tr>
-                        <td>电话</td>
-                        <td><input name="telephone" type="text" placeholder="联系方式"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>所属于组</td>
-                        <td>
-                            <select name="group_id">
-                                <option value="0" >不分组</option>
-                                <?php foreach($groups as $group_s) { ?>
-                                <option value="<?php echo $group_s['group_id'];?>"><?php echo $group_s['name'];?></option>
-                                <?php } ?>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>头像上传</td>
-                        <td><input name="photo" type="file"></td>
-                    </tr>
-                    <tr>
-                        <td>确认为管理员</td>
-                        <td><input name="is_admin" value="1" type="checkbox"></td>
-                    </tr>
-                </table>
-                <input  type="submit" value="添加">
-            </form>
-
-
-
+            <a href="index.php?p=Admin&c=Group&a=add">添加部门</a>
+            <table  border="1" width="80%">
+                <tr><th>部门id</th><th>部门名称</th><th>操作</th></tr>
+                <?php foreach($rows as $k=>$row){ ?>
+                <tr><td><?php echo $row['group_id'] ; ?></td><td><?php echo $row['name'] ; ?></td><td><a href="index.php?p=Admin&c=Group&a=edit&id=<?php echo $row['group_id'];?>">修改</a><a href="index.php?p=Admin&c=Group&a=delete&id=<?php echo $row['group_id'];?>">删除</a></td></tr>
+                <?php } ?>
+            </table>
         </div>
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">

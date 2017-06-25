@@ -12,7 +12,7 @@ class LoginModel extends Model{
         //        先加密才能和数据库对比
         $password=md5($data['password']);
         //        构造sql
-        $sql="select * from `members` WHERE username='{$data['username']}' AND password='{$password}'";
+        $sql="select * from `members` WHERE username='{$data['username']}' AND password='{$password}' AND is_admin=1";
 //        var_dump($sql);exit;
         $row=$this->db->fetchRow($sql);
         if(empty($row)){
@@ -64,6 +64,15 @@ class LoginModel extends Model{
         }else{
             return $row;
         }
+    }
+//    插入id与时间
+    public function ip_time($id){
+        $time=date('Y-m-d H:i:s',time());
+        $ip=$_SERVER["REMOTE_ADDR"];
+
+        $sql="update members set last_loginip='$ip',last_login='$time' WHERE member_id=$id";
+//        var_dump($sql);exit;
+        $this->db->query($sql);
     }
 
 }

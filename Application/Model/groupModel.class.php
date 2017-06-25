@@ -46,7 +46,14 @@ class groupModel extends Model{
 //    删除
     public function delete($id){
         $sql="delete from `group` WHERE group_id=$id";
+        $sql_c="SELECT count(*) FROM members WHERE group_id=$id ";
+        $count=$this->db->fetchColumn($sql_c);
+//        var_dump($count);exit;
+//        var_dump($sql_c);exit;
+        if($count>0){
+            return FALSE;
+        }else{
 //        var_dump($sql);exit;
-        $this->db->query($sql);
+        $this->db->query($sql);}
     }
 }

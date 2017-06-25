@@ -83,7 +83,7 @@ class Framework
             'DB'=>TOOLS_PATH.'DB.class.php',
             'Model'=>FRAM_PATH.'Model.class.php',
             'Controller'=>FRAM_PATH.'Controller.class.php',
-            'page'=>TOOLS_PATH.'page.class.php',
+            'Page'=>TOOLS_PATH.'Page.class.php'
         );
     }
 

@@ -204,51 +204,28 @@
         </nav>
 
         <div class="content">
-            <form action="index.php?p=Admin&c=Members&a=add" method="post" enctype="multipart/form-data">
+            <form action="index.php?p=Admin&c=plans&a=add" method="post" enctype="multipart/form-data">
                 <table>
                     <tr>
-                        <td>用户名</td>
-                        <td><input name="username" type="text" placeholder="请输入用户名"/>*</td>
+                        <td>套餐名称</td>
+                        <td><input name="name" type="text" />*</td>
                     </tr>
                     <tr>
-                        <td>密码</td>
-                        <td><input name="password" type="text" placeholder="请输入用户密码"/>*</td>
+                        <td>套餐描述</td>
+                        <td><textarea name="des"></textarea></td>
                     </tr>
                     <tr>
-                        <td>姓名</td>
-                        <td><input name="realname" type="text" placeholder="请输入姓名"/>*</td>
+                        <td>套餐价格</td>
+                        <td><input name="money" type="text"/>*</td>
                     </tr>
                     <tr>
-                        <td>性别</td>
+                        <td>状态</td>
                         <td>
-                            <input name="sex" type="radio" value="男">男
-                            <input name="sex" type="radio" value="女">女
+                            <input name="status" type="radio" value="1">上架套餐
+                            <input name="status" type="radio" value="0">下架套餐
                         </td>
-                    <tr>
-                        <td>电话</td>
-                        <td><input name="telephone" type="text" placeholder="联系方式"/>*</td>
-                    </tr>
-                    <tr>
-                        <td>所属于组</td>
-                        <td>
-                            <select name="group_id">
-                                <option value="0" >不分组</option>
-                                <?php foreach($groups as $group_s) { ?>
-                                <option value="<?php echo $group_s['group_id'];?>"><?php echo $group_s['name'];?></option>
-                                <?php } ?>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>头像上传</td>
-                        <td><input name="photo" type="file"></td>
-                    </tr>
-                    <tr>
-                        <td>确认为管理员</td>
-                        <td><input name="is_admin" value="1" type="checkbox"></td>
-                    </tr>
                 </table>
-                <input  type="submit" value="添加">
+                <input  type="submit" value="添加套餐">
             </form>
 
 

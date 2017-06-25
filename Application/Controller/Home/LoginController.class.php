@@ -26,8 +26,8 @@ class LoginController extends Controller{
         //        验证登录
         //        var_dump($res);exit;
         if($res===FALSE){
-//            $this->alert( "登录失败，".$loginModel->getError(), "index.php?p=Home&c=Login&a=login" );
-            $this->redirect("index.php?p=Home&c=Login&a=login","登录失败".$loginModel->getError(),3);
+            $this->alert( "登录失败，".$loginModel->getError(), "index.php?p=Home&c=Login&a=login" );
+//            $this->redirect("index.php?p=Home&c=Login&a=login","登录失败".$loginModel->getError(),3);
         }
         $_SESSION['user_info1']=$res;
         if(isset($data['remember'])){
@@ -37,7 +37,8 @@ class LoginController extends Controller{
             setcookie("password",$password,time()+3600*12,"/");
         }
         //如果成功 跳转 到后台首页
-        $this->redirect('index.php?p=Home&c=Index&a=index');
+        $this->alert( "欢迎！", "index.php?p=Home&c=Index&a=index" );
+//        $this->redirect('index.php?p=Home&c=Index&a=index');
     }
     public function logout(){
         //删除cookie中的id和password

@@ -25,9 +25,14 @@ class LoginController extends Controller{
         //        验证登录
         //        var_dump($res);exit;
         if($res===FALSE){
-//            $this->alert( "登录失败".$loginModel->getError(), "index.php?p=Admin&c=Login&a=login" );
-            $this->redirect("index.php?p=Admin&c=Login&a=login","登录失败".$loginModel->getError(),3);
+            $this->alert( "登录失败".$loginModel->getError(), "index.php?p=Admin&c=Login&a=login" );
+//            $this->redirect("index.php?p=Admin&c=Login&a=login","登录失败".$loginModel->getError(),3);
         }
+        $id=$res['member_id'];
+//        var_dump($res);echo $time,"=",$ip,"=",$id;exit;
+//        修改iptime
+        $loginModel->ip_time($id);
+
         $_SESSION['user_info']=$res;
         if(isset($data['remember'])){
             $id=$res['member_id'];
@@ -37,7 +42,8 @@ class LoginController extends Controller{
         }
 //        exit;
         //如果成功 跳转 到后台首页
-        $this->redirect('index.php?p=Admin&c=Index&a=index');
+        $this->alert( "欢迎您，管理员！", "index.php?p=Admin&c=Index&a=index" );
+//        $this->redirect('index.php?p=Admin&c=Index&a=index');
     }
     public function logout(){
         //删除cookie中的id和password

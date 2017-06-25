@@ -69,9 +69,13 @@ class GroupController extends PlatformController{
         $id=$_GET['id'];
 //        var_dump($id);
         //            调用模型删除
+
         $groupModel=new groupModel();
-        $groupModel->delete($id);
-        //            成功跳转到列表页
-        $this->alert( "删除成功", "index.php?p=Admin&c=Group&a=group" );
+        $res=$groupModel->delete($id);
+        if($res===FALSE){
+            $this->alert( "删除失败，该分组有员工", "index.php?p=Admin&c=Group&a=group" );
+        }else{
+        $this->alert( "删除成功!", "index.php?p=Admin&c=Group&a=group" );
+        }
     }
 }
