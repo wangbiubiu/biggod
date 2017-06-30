@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<a href="index.php?p=Admin&c=Article&a=index">管理活动</a>
+<?php foreach($articles as $article){ ?>
+<center><h3><?php echo $article['title'] ?></h3></center>
+<center><?php echo $article['content'] ?></center>
+<pre>
+活动编号:<?php echo $article['article_id'] ?>               活动开始时间:<?php echo date("Y-m-d",$article['start']) ; ?>                活动结束时间:<?php echo date("Y-m-d",$article['end']) ; ?>                  活动发布时间:<?php echo $article['time'] ?>                 发布人:<?php echo $article['admin'] ?>
+</pre>
+<hr>
+<?php } ?>
+</body>
+</html>
