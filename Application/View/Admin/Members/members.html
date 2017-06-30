@@ -273,11 +273,11 @@
                 联系电话<input type="text" name="telephone">
                 <input type="RADIO" name="sex" value="男">男
                 <input type="RADIO" name="sex" value="女">女
-                <input type="submit" value="查找">
+                <input class="btn btn-sm btn-fill"  type="submit" value="查找">
             </form>
             <a href="index.php?p=Admin&c=Members&a=add">添加员工</a>
-            <table  border="1" width="80%">
-                <tr><th>头像</th><th>员工姓名</th><th>性别</th><th>电话</th><th>所属组</th><th id="admin">是否为管理员</th><th>最后登录ip</th><th>最后登录时间</th><th>操作</th></tr>
+            <table  class="table table-hover table-striped" width="80%">
+                <tr><th>头像</th><th>员工姓名</th><th>性别</th><th>电话</th><th>所属组</th><th id="admin">是否为管理员</th><th>最后登录ip</th><th>最后登录时间</th><th>&emsp;操作</th></tr>
 
                 <?php foreach($rows as $member) { ?>
                 <tr><td><img width="50" src="./Uploads/<?php echo $member['photo'];  ?>"></td>
@@ -288,7 +288,7 @@
                     <td><?php  if($member['is_admin']==1){echo "是";}else{echo "否";} ?></td>
                     <td><?php echo $member['last_loginip'] ?></td>
                     <td><?php echo $member['last_login'] ?></td>
-                    <td><a href="index.php?p=Admin&c=Members&a=edit&id=<?php echo $member['member_id'] ?>">修改</a><a href="index.php?p=Admin&c=Members&a=delete&id=<?php echo $member['member_id'] ?>">删除</a></td>
+                    <td><a href="index.php?p=Admin&c=Members&a=edit&id=<?php echo $member['member_id'] ?>">修改</a>&emsp;<a href="index.php?p=Admin&c=Members&a=delete&id=<?php echo $member['member_id'] ?>">删除</a></td>
                 </tr>
                 <?php } ?>
 

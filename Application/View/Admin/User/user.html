@@ -266,11 +266,11 @@
                 联系电话<input type="text" name="telephone">
                 <input type="RADIO" name="sex" value="男">男
                 <input type="RADIO" name="sex" value="女">女
-                <input type="submit" value="查找">
+                <input class="btn btn-sm btn-fill" type="submit" value="查找">
             </form>
             <a href="index.php?p=Admin&c=User&a=add">添加会员</a>
-            <table  border="1" width="80%">
-                <tr><th>头像</th><th>员工姓名</th><th>性别</th><th>电话</th><th>备注</th><th>余额</th><th>操作</th><th>充值与消费</th></tr>
+            <table class="table table-hover table-striped" width="80%">
+                <tr><th>头像</th><th>员工姓名</th><th>性别</th><th>电话</th><th>备注</th><th>余额</th><th>vip等级</th><th>&emsp; 操作</th><th>充值与消费</th></tr>
 
                 <?php foreach($rows as $user) { ?>
                 <tr><td><img width="50" src="./Uploads/<?php echo $user['photo'];  ?>"></td>
@@ -279,9 +279,10 @@
                     <td><?php echo $user['telephone'] ?></td>
                     <td><?php echo $user['remark'] ?></td>
                     <td><?php echo $user['money'] ?></td>
-                    <td><a href="index.php?p=Admin&c=user&a=edit&id=<?php echo $user['user_id'] ?>">修改</a><a href="index.php?p=Admin&c=user&a=delete&id=<?php echo $user['user_id'] ?>">删除</a></td>
-                    <td><a href="#">充值</a>&emsp;
-                        <a href="#">消费</a></td>
+                    <td><?php echo $user['is_vip'] ?></td>
+                    <td><a href="index.php?p=Admin&c=user&a=edit&id=<?php echo $user['user_id']?>">修改</a>&emsp;<a href="index.php?p=Admin&c=user&a=delete&id=<?php echo $user['user_id'] ?>">删除</a></td>
+                    <td><a href="index.php?p=Admin&c=money&a=plus&id=<?php echo $user['user_id']?>">充值</a>&emsp;
+                        <a href="index.php?p=Admin&c=money&a=reduce&id=<?php echo $user['user_id']?>">消费</a></td>
                 </tr>
                 <?php } ?>
 

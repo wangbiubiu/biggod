@@ -143,4 +143,9 @@ class UserModel extends Model{
         }else{
             $this->db->query($sql);}
     }
+    public function all(){
+        $sql="select * from users";
+        $rows=$this->db->fetchAll($sql);
+        return $rows;
+    }
 }

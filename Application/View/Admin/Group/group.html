@@ -205,10 +205,10 @@
 
         <div class="content">
             <a href="index.php?p=Admin&c=Group&a=add">添加部门</a>
-            <table  border="1" width="80%">
-                <tr><th>部门id</th><th>部门名称</th><th>操作</th></tr>
+            <table class="table table-hover table-striped"   width="80%">
+                <tr ><th>部门id</th><th>部门名称</th><th>&emsp;操作</th></tr>
                 <?php foreach($rows as $k=>$row){ ?>
-                <tr><td><?php echo $row['group_id'] ; ?></td><td><?php echo $row['name'] ; ?></td><td><a href="index.php?p=Admin&c=Group&a=edit&id=<?php echo $row['group_id'];?>">修改</a><a href="index.php?p=Admin&c=Group&a=delete&id=<?php echo $row['group_id'];?>">删除</a></td></tr>
+                <tr ><td><?php echo $row['group_id'] ; ?></td><td><?php echo $row['name'] ; ?></td><td><a href="index.php?p=Admin&c=Group&a=edit&id=<?php echo $row['group_id'];?>">修改</a>&emsp;<a href="index.php?p=Admin&c=Group&a=delete&id=<?php echo $row['group_id'];?>">删除</a></td></tr>
                 <?php } ?>
             </table>
         </div>

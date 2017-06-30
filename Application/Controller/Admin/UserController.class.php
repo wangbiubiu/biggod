@@ -37,7 +37,7 @@ class UserController extends PlatformController{
             //            var_dump($cond);exit;
         }
 
-        $data =$userModel->getAll($cond);//获取所有的商品数据
+        $data =$userModel->getAll($cond);
         //分配数据到页面
         $this->assign($data);
         //        var_dump($data);exit;

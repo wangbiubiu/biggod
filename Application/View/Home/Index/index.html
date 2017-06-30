@@ -89,6 +89,7 @@
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
 
 
+
                         <!--<?php var_dump ($_SESSION)  ?>-->
                         <?php echo $_SESSION['user_info1']['realname'];  ?>
 
@@ -98,7 +99,15 @@
                     </a>
                     <div class="collapse" id="collapseExample">
                         <ul class="nav">
+                            <ul class="nav">
 
+
+
+                                <li><a >我的余额：<?php echo $money; ?></a></li>
+                                <li><a >我的积分：<?php echo $integral; ?></a></li>
+
+
+                            </ul>
 
 
                         </ul>
@@ -120,10 +129,12 @@
                     </a>
                     <div class="collapse" id="formsExamples">
                         <ul class="nav">
-                            <li><a href="#">我的消费</a></li>
+                            <li><a href="index.php?p=Home&c=Histories&a=histories">我的消费</a></li>
+                            <li><a href="index.php?p=Home&c=integral&a=integral">我的积分</a></li>
                         </ul>
                     </div>
                 </li>
+
 
 
                 <!--部门管理-->
@@ -132,13 +143,13 @@
                 <li>
                     <a data-toggle="collapse" href="#tablesExamples">
                         <i class="pe-7s-news-paper"></i>
-                        <p>美发套餐
+                        <p>预约美发
                            <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="tablesExamples">
                         <ul class="nav">
-                            <li><a href="#">查看套餐</a></li>
+                            <li><a href="index.php?p=Home&c=plans&a=plan">查看套餐</a></li>
                             <li><a href="index.php?p=Home&c=order&a=order">我的预约</a></li>
                         </ul>
                     </div>
@@ -152,13 +163,28 @@
                 <li>
                     <a data-toggle="collapse" href="#componentsExamples">
                         <i class="pe-7s-plugin"></i>
-                        <p>店铺活动
+                        <p>最新活动
                             <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="componentsExamples">
                         <ul class="nav">
-                            <li><a href="#">查看活动</a></li>
+                            <li><a href="index.php?p=Home&c=Article&a=article">查看活动</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#componentsExample">
+                        <i class="pe-7s-plugin"></i>
+                        <p>积分商城
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="componentsExample">
+                        <ul class="nav">
+                            <li><a href="index.php?p=Home&c=goods&a=goods">换购商品</a></li>
+                            <li><a href="index.php?p=Home&c=dd&a=dd">我的订单</a></li>
                         </ul>
                     </div>
                 </li>
@@ -172,8 +198,8 @@
 
 
 
-                <li class="active">
-                    <a href="charts.html">
+                <li>
+                    <a href="index.php?p=HOME&c=ranking&a=ranking">
                         <i class="pe-7s-graph1"></i>
                         <p>排行榜</p>
                     </a>
@@ -182,7 +208,7 @@
 
 
                 <li>
-                    <a href="#">
+                    <a href="index.php?p=Home&c=Code&a=code">
                         <i class="pe-7s-date"></i>
                         <p>我的代金劵</p>
                     </a>
@@ -207,8 +233,6 @@
                 <!--</li>-->
 
 
-
-
             </ul>
     	</div>
     </div>
@@ -229,36 +253,14 @@
 
 
 
-
-
-
-
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="charts.html">
+                            <a href="index.php?p=HOME&c=ranking&a=ranking">
                                 <i class="fa fa-line-chart"></i>
                                 <p>查看排名</p>
                             </a>
                         </li>
 
-
-
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-
-                                <span class="notification">N</span>
-
-                                <p class="hidden-md hidden-lg">
-    								Notifications
-    								<b class="caret"></b>
-    							</p>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">您有N条预约回复</a></li>
-                            </ul>
-                        </li>
 
                         <li class="dropdown dropdown-with-icons">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -305,10 +307,41 @@
         </nav>
 
         <div class="content">
-            <img width="1050" src="./Uploads/<?php echo $_SESSION['user_info1']['photo'];  ?>" />
-            <!--<iframe src="D:\web\xiangmu\Application\View\Admin\Signup\signup.html"  frameborder="1" scrolling="NO"></iframe>-->
-            <!--111-->
-            <!--<img src="D:\web\项目\picture\full-screen-image-3.jpg">-->
+            <table class="table table-hover table-striped">
+                <caption><h4>充值有礼！</h4></caption>
+                <tr>
+                    <th>序号</th>
+                    <th>充</th>
+                    <th>送</th>
+                </tr>
+                <?php foreach($rows as $k=>$v_c) {?>
+                <tr>
+                    <td><?php echo $k+1; ?></td>
+                    <td><?php echo $v_c['money_c']  ?></td>
+                    <td><?php echo $v_c['money_s']  ?></td>
+                </tr>
+                <?php } ?>
+
+            </table>
+            <table class="table table-hover table-striped">
+                <caption><h4>vip！</h4></caption>
+                <tr>
+                    <th>序号</th>
+                    <th>累计充值</th>
+                    <th>会员等级</th>
+                    <th>会员折扣</th>
+                </tr>
+                <?php foreach($vips as $k1=>$v_vip){ ?>
+                <tr>
+                    <td><?php echo $k1+1; ?></td>
+                    <td><?php echo $v_vip['money_c']; ?></td>
+                    <td><?php echo $v_vip['vip_grade']; ?></td>
+                    <td><?php echo $v_vip['vip_discount']; ?></td>
+                </tr>
+                <?php } ?>
+            </table>
+
+
         </div>
 
         <footer class="footer">

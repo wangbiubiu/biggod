@@ -30,14 +30,21 @@ class MembersModel extends Model{
 
 
 //        SELECT * FROM members LEFT JOIN `group` on members.group_id = `group`.group_id
-        $sql = "SELECT * FROM members LEFT JOIN `group` on members.group_id = `group`.group_id " . $where . " limit $start,$pageSize";
-
+//        $sql = "SELECT * FROM members LEFT JOIN `group` on members.group_id = `group`.group_id " . $where . " limit $start,$pageSize";
+        $sql = "SELECT * FROM members " . $where .
+               " limit $start,$pageSize";
         //        var_dump($sql);exit;
 
 
 
         //        $sql="select * from goods";
         $rows = $this->db->fetchAll( $sql );
+
+        foreach($rows as $k=>&$v){
+            //            echo $v['user_id']."=";
+            $username=$this->db->fetchColumn("select `name` from `group` WHERE group_id={$v['group_id']}");
+            $v['name']=$username;
+        }
         $a    = [ 'rows' => $rows, 'page' => $page, 'count' => $count, 'pageSize' => $pageSize ];
 //        var_dump($a);exit;
 //        返回员工数与分页数据
@@ -149,6 +156,12 @@ class MembersModel extends Model{
             return FALSE;
         }else{
         $this->db->query($sql);}
+    }
+    public function getAll1(){
+        $sql = "SELECT * FROM members  LEFT JOIN `group` on members.group_id = `group`.group_id ";
+        $rows=$this->db->fetchAll($sql);
+//        var_dump($rows);exit;
+        return $rows;
     }
 
 

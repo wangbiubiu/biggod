@@ -262,8 +262,8 @@
         <div class="content">
 
             <a href="index.php?p=Admin&c=Plans&a=add">添加套餐</a>
-            <table  border="1" width="80%">
-                <tr><th>套餐id</th><th>套餐名称</th><th>套餐描述</th><th>套餐金额</th><th>是否上架</th><th>操作</th></tr>
+            <table  class="table table-hover table-striped" width="80%">
+                <tr><th>套餐id</th><th>套餐名称</th><th>套餐描述</th><th>套餐金额</th><th>是否上架</th><th>&emsp; 操作</th></tr>
 
                 <?php foreach($rows as $plan) { ?>
                 <tr>
@@ -273,7 +273,7 @@
                     <td><?php echo $plan['money'] ?></td>
                     <td><?php  if($plan['status']==1){echo "是";}else{echo "否";} ?></td>
                     <td><a href="index.php?p=Admin&c=Plans&a=edit&id=<?php echo $plan['plan_id'] ?>">修改</a>
-                        <a href="index.php?p=Admin&c=Plans&a=delete&id=<?php echo $plan['plan_id'] ?>">删除</a></td>
+                        &emsp;<a href="index.php?p=Admin&c=Plans&a=delete&id=<?php echo $plan['plan_id'] ?>">删除</a></td>
                 </tr>
                 <?php } ?>
 

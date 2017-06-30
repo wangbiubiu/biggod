@@ -20,7 +20,7 @@ class Controller
     }
 //    js跳转
     public function alert($info,$url){
-        echo '<script type="text/javascript">alert("'.$info.'");location.href="'.$url.'";</script>';
+        echo '<script class="content text-center" type="text/javascript">alert("'.$info.'");location.href="'.$url.'";</script>';
     }
 
     /**

@@ -14,6 +14,11 @@ class PlansModel extends Model{
         $rows=$this->db->fetchAll($sql);
         return $rows;
     }
+    public function gatAll1(){
+        $sql="select * from plans WHERE status<>0";
+        $rows=$this->db->fetchAll($sql);
+        return $rows;
+    }
 //    添加套餐
     public function insert($data){
         if(empty($data['name'])){
@@ -28,7 +33,7 @@ class PlansModel extends Model{
             $this->error = "请填写套餐金额！";
             return false;
         }
-        if(empty($data['status'])){
+        if(!isset($data['status'])){
             $this->error = "请确认套餐是否上架！";
             return false;
         }

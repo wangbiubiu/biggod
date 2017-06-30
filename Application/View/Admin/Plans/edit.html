@@ -205,7 +205,7 @@
 
         <div class="content">
             <form action="index.php?p=Admin&c=plans&a=edit" method="post" enctype="multipart/form-data">
-                <table>
+                <table class="table table-hover table-striped">
                     <input name="id" type="hidden" value="<?php echo $plan_id; ?>"/>
                     <tr>
                         <td>套餐名称</td>
@@ -226,7 +226,7 @@
                             <input name="status" type="radio" value="0" <?php if($status==0) echo "checked=''"; ?>>下架套餐
                         </td>
                 </table>
-                <input  type="submit" value="修改套餐">
+                <input class="btn btn-sm btn-fill" type="submit" value="修改套餐">
             </form>
 
 

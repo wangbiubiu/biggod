@@ -82,7 +82,7 @@
                 <div class="photo">
 
 
-                    <img height="80px" src="./Uploads/<?php echo $_SESSION['user_info']['photo'];  ?>" />
+                    <img height="80px" src="./Uploads/<?php echo $_SESSION['user_info1']['photo'];  ?>" />
 
                 </div>
                 <div class="info">
@@ -90,7 +90,7 @@
 
 
                         <!--<?php var_dump ($_SESSION)  ?>-->
-                        <?php echo $_SESSION['user_info']['realname'];  ?>
+                        <?php echo $_SESSION['user_info1']['realname'];  ?>
 
 
 
@@ -119,7 +119,7 @@
                     </a>
                     <div class="collapse" id="formsExamples">
                         <ul class="nav">
-                            <li><a href="index.php?p=Admin&c=Index&a=index">返回主页</a></li>
+                            <li><a href="index.php?p=Home&c=Index&a=index">返回主页</a></li>
 
                         </ul>
                     </div>
@@ -190,7 +190,7 @@
                                     <!--</a>-->
                                 <!--</li>-->
                                 <li>
-                                    <a href="index.php?p=Admin&c=Login&a=logout" class="text-danger">
+                                    <a href="index.php?p=Home&c=Login&a=logout" class="text-danger">
                                         <i class="pe-7s-close-circle"></i>
                                         Log out
                                     </a>
@@ -204,14 +204,51 @@
         </nav>
 
         <div class="content">
-            <form action="index.php?p=Admin&c=Group&a=add" method="post" enctype="multipart/form-data">
-                <table>
+            <form action="index.php?p=Home&c=order&a=add" method="post" enctype="multipart/form-data">
+                <table class="table table-hover table-striped">
                     <tr>
-                        <td>添加组名</td>
-                        <td><input name="group_name" type="text" placeholder="请输入组名"/>*</td>
+                        <td>预约人姓名</td>
+                        <td><input name="real_name" type="text" placeholder="请输入姓名"/></td>
+                    </tr>
+                    <tr>
+                        <td>预约人电话</td>
+                        <td><input name="phone" type="text" placeholder="请输入联系方式"/></td>
+                    </tr>
+                    <tr>
+                        <td>预约美发师</td>
+                        <td>
+                            <select name="barber">
+                                <?php foreach($rows as $row){ ?>
+
+                                <option value="<?php echo $row['realname'] ?>"><?php echo $row['realname'] ?></option>
+
+                                <?php } ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>预约套餐</td>
+                        <td>
+                            <select name="plan">
+                                <?php foreach($plans as $plan){ ?>
+
+                                <option value="<?php echo $plan['name'] ?>"><?php echo $plan['name']." ".$plan['money'] ?></option>
+
+                                <?php } ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>预约日期</td>
+                        <td><input name="data" type="date" /></td>
+                    </tr>
+                    <tr>
+                        <td>备注</td>
+                        <td><textarea name="content"></textarea></td>
                     </tr>
                 </table>
-                <input  type="submit" value="添加">
+
+                <input  class="btn btn-sm btn-fill" type="submit" value="预约！">
             </form>
 
 

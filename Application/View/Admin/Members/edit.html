@@ -206,7 +206,7 @@
             <form action="index.php?p=Admin&c=Members&a=edit" method="post" enctype="multipart/form-data">
                 <input name="id" type="hidden" value="<?php echo $member_id ;?>">
 
-                <table>
+                <table class="table table-hover table-striped">
                     <tr>
                         <td>用户名</td>
                         <td><input name="username" type="text" value="<?php echo $username ;?>">*</td>
@@ -251,7 +251,7 @@
                         <td><input name="is_admin" value="1" type="checkbox" <?php if($is_admin==1)echo "checked=''"; ?>></td>
                     </tr>
                 </table>
-                <input  type="submit" value="修改">
+                <input class="btn btn-sm btn-fill"  type="submit" value="修改">
 
 
 

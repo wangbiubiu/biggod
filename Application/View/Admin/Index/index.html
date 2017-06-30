@@ -101,8 +101,8 @@
 
 
 
-                            <li><a href="#">在线充值</a></li>
-                            <li><a href="#">查询所有人消费</a></li>
+                            <!--<li><a href="#"></a></li>-->
+                            <!--<li><a href="#"></a></li>-->
 
 
                         </ul>
@@ -136,14 +136,14 @@
                 <li>
                     <a data-toggle="collapse" href="#tablesExamples">
                         <i class="pe-7s-news-paper"></i>
-                        <p>美发套餐
+                        <p>套餐与预约
                            <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="tablesExamples">
                         <ul class="nav">
                             <li><a href="index.php?p=Admin&c=Plans&a=plans">查看套餐</a></li>
-                            <li><a href="#">查看预约</a></li>
+                            <li><a href="index.php?p=Admin&c=Order&a=order">查看预约</a></li>
                         </ul>
                     </div>
                 </li>
@@ -153,14 +153,17 @@
                 <li>
                     <a data-toggle="collapse" href="#mapsExamples">
                         <i class="pe-7s-map-marker"></i>
-                        <p>会员管理
+                        <p>会员与消费
                             <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="mapsExamples">
                         <ul class="nav">
                             <li><a href="index.php?p=Admin&c=User&a=user">管理会员</a></li>
-                            <li><a href="#">消费与充值</a></li>
+                            <li><a href="index.php?p=Admin&c=Setmoney&a=setmoney">自定义充值活动</a></li>
+                            <li><a href="index.php?p=Admin&c=Setvip&a=setvip">自定义会员等级优惠</a></li>
+                            <li><a href="index.php?p=Admin&c=Histories&a=histories">查询所有人消费记录</a></li>
+                            <li><a href="index.php?p=Admin&c=integral&a=integral">查询所有人积分明细</a></li>
                         </ul>
                     </div>
                 </li>
@@ -168,16 +171,32 @@
 
 
                 <li>
-                    <a data-toggle="collapse" href="#componentsExamples">
+                <a data-toggle="collapse" href="#componentsExamples">
+                    <i class="pe-7s-plugin"></i>
+                    <p>店铺活动
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="componentsExamples">
+                    <ul class="nav">
+                        <li><a href="index.php?p=Admin&c=Article&a=add">发布活动</a></li>
+                        <li><a href="index.php?p=Admin&c=Article&a=Article">查看活动</a></li>
+                        <li><a href="index.php?p=Admin&c=Article&a=index">管理活动</a></li>
+                    </ul>
+                </div>
+            </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#asda">
                         <i class="pe-7s-plugin"></i>
-                        <p>店铺活动
+                        <p>积分商城
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse" id="componentsExamples">
+                    <div class="collapse" id="asda">
                         <ul class="nav">
-                            <li><a href="#">发布活动</a></li>
-                            <li><a href="#">查看活动</a></li>
+                            <li><a href="index.php?p=Admin&c=Goods&a=goods">商品管理</a></li>
+                            <li><a href="index.php?p=Admin&c=dd&a=dd">订单确认</a></li>
                         </ul>
                     </div>
                 </li>
@@ -191,17 +210,15 @@
 
 
 
-                <li class="active">
-                    <a href="charts.html">
+                <li>
+                    <a href="index.php?p=Admin&c=ranking&a=ranking">
                         <i class="pe-7s-graph1"></i>
                         <p>排行榜</p>
                     </a>
                 </li>
 
-
-
                 <li>
-                    <a href="#">
+                    <a href="index.php?p=Admin&c=Code&a=code">
                         <i class="pe-7s-date"></i>
                         <p>代金劵管理</p>
                     </a>
@@ -254,7 +271,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="charts.html">
+                            <a href="index.php?p=Admin&c=ranking&a=ranking">
                                 <i class="fa fa-line-chart"></i>
                                 <p>查看排名</p>
                             </a>
@@ -264,10 +281,10 @@
 
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
 
-                                <span class="notification">N</span>
+                                <span class="notification"><?php echo $count+$count1;?></span>
 
                                 <p class="hidden-md hidden-lg">
     								Notifications
@@ -275,7 +292,8 @@
     							</p>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">您有N条未处理预约</a></li>
+                                <li><a href="index.php?p=Admin&c=order&a=order">您有<?php echo $count; ?>条未处理预约</a></li>
+                                <li><a href="index.php?p=Admin&c=dd&a=dd">您有<?php echo $count1; ?>条订单尚未发货</a></li>
                             </ul>
                         </li>
 

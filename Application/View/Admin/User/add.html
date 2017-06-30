@@ -205,14 +205,14 @@
 
         <div class="content">
             <form action="index.php?p=Admin&c=User&a=add" method="post" enctype="multipart/form-data">
-                <table>
+                <table class="table table-hover table-striped">
                     <tr>
                         <td>用户名</td>
                         <td><input name="username" type="text" placeholder="请输入用户名">*</td>
                     </tr>
                     <tr>
                         <td>密码</td>
-                        <td><input name="password" type="text" placeholder="请输入用户密码"/>*</td>
+                        <td><input name="password" type="password" placeholder="请输入用户密码"/>*</td>
                     </tr>
                     <tr>
                         <td>姓名</td>
@@ -240,7 +240,7 @@
                     </tr>
 
                 </table>
-                <input  type="submit" value="添加">
+                <input class="btn btn-sm btn-fill" type="submit" value="添加">
             </form>
 
 

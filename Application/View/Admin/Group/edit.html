@@ -205,14 +205,14 @@
 
         <div class="content">
             <form action="index.php?p=Admin&c=Group&a=edit" method="post" enctype="multipart/form-data">
-                <table>
+                <table class="table table-hover table-striped">
                     <tr>
                         <td>修改分组</td>
                         <td><input name="group_name" type="text"  value="<?php echo $name; ?>"/>*</td>
                         <input name="id" type="hidden" value="<?php echo $group_id; ?>">
                     </tr>
                 </table>
-                <input  type="submit" value="修改">
+                <input class="btn btn-sm btn-fill"  type="submit" value="修改">
             </form>
 
         </div>
